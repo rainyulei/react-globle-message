@@ -1,0 +1,23 @@
+.message {
+    position: fixed;
+    left: 50%;
+    top: 30px;
+    transform: translate3d(-50%, 0, 0);
+    background: #000;
+    background: #f0f9eb;
+    color: #c2773a;
+    padding: 10px 20px;
+    border-radius: 4px;
+    animation: move 0.3s;
+  }
+  
+  @keyframes move {
+    0% {
+      top: 0;
+      opacity: 0;
+    }
+    100% {
+      top: 30px;
+      opacity: 1;
+    }
+  }
