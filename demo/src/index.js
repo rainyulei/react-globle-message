@@ -1,15 +1,31 @@
-import React, {Component} from 'react'
-import {render} from 'react-dom'
+import React, { useState } from 'react';
+import { render } from 'react-dom';
 
-import Example from '../../src'
+import { Message, ThemeContext } from '../../src';
 
-export default class Demo extends Component {
-  render() {
-    return <div>
-      <h1>react-global-message Demo</h1>
-      <Example/>
-    </div>
-  }
-}
+const Demo = () => {
+  const [st, setst] = useState(0);
+  const handleSuccess = () => {
+    Message.success({
+      message: st + 1,
+      closedable: true,
+      onClose: item => {
+        console.log(item);
+      },
+      onStart: item => {
+        console.log(item);
+      },
+    });
+    setst(st + 1);
+  };
 
-render(<Demo/>, document.querySelector('#demo'))
+  return (
+    <ThemeContext.Provider >
+      <div>
+        <button onClick={handleSuccess}>success</button>
+      </div>
+    </ThemeContext.Provider>
+  );
+};
+
+render(<Demo />, document.querySelector('#demo'));

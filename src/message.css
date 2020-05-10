@@ -1,23 +1,66 @@
-.message {
-    position: fixed;
-    left: 50%;
-    top: 30px;
-    transform: translate3d(-50%, 0, 0);
-    background: #000;
-    background: #f0f9eb;
-    color: #c2773a;
-    padding: 10px 20px;
-    border-radius: 4px;
-    animation: move 0.3s;
-  }
-  
-  @keyframes move {
-    0% {
-      top: 0;
+ul,
+li {
+  list-style: none;
+}
+.success {
+  background: #000;
+  background: #f0f9eb;
+  color: #59db3f;
+}
+
+.error {
+  background: #000;
+  background: #f0f9eb;
+  color: #f03a2d;
+}
+.warning {
+  background: #000;
+  background: #f0f9eb;
+  color: #ecb10d;
+}
+.default {
+  background: #000;
+  background: #f0f9eb;
+  color: #3ac2bb;
+}
+
+@keyframes fadeInUp {
+  from {
       opacity: 0;
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
     }
-    100% {
-      top: 30px;
+    to {
       opacity: 1;
+      -webkit-transform: none;
+      transform: none;
     }
-  }
+}
+
+.message-container {
+position: fixed;
+overflow: hidden;
+z-index: 999999999999;
+max-height: calc(100vh - 10px);
+text-align: right;
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+
+}
+
+.message {
+font-family: 'Arial';
+display: flex;
+align-items: center;
+text-align: center;
+padding: 0.5rem 0.7rem;
+white-space: pre-line;
+min-height: 1.5rem;
+margin-bottom: 1rem;
+border-radius: 0.3rem;
+animation-name: fadeInUp;
+animation-duration: 1s;
+animation-fill-mode: both;
+
+}
