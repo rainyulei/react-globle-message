@@ -1,66 +1,44 @@
-ul,
-li {
-  list-style: none;
-}
-.success {
-  background: #000;
-  background: #f0f9eb;
-  color: #59db3f;
-}
-
-.error {
-  background: #000;
-  background: #f0f9eb;
-  color: #f03a2d;
-}
-.warning {
-  background: #000;
-  background: #f0f9eb;
-  color: #ecb10d;
-}
-.default {
-  background: #000;
-  background: #f0f9eb;
-  color: #3ac2bb;
-}
-
 @keyframes fadeInUp {
   from {
-      opacity: 0;
-      -webkit-transform: translate3d(0, 100%, 0);
-      transform: translate3d(0, 100%, 0);
-    }
-    to {
-      opacity: 1;
-      -webkit-transform: none;
-      transform: none;
-    }
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
 }
-
+.message__closeIcon{
+  right: 0;
+ margin-left: 1vw;
+  display: inline-block;
+  min-height: 100%;
+  line-height: 100%;
+}
 .message-container {
-position: fixed;
-overflow: hidden;
-z-index: 999999999999;
-max-height: calc(100vh - 10px);
-text-align: right;
-display: flex;
-flex-direction: column;
-align-items: flex-end;
-
+  position: fixed;
+  overflow: hidden;
+  z-index: 999999999999;
+  max-height: calc(100vh - 10px);
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .message {
-font-family: 'Arial';
-display: flex;
-align-items: center;
-text-align: center;
-padding: 0.5rem 0.7rem;
-white-space: pre-line;
-min-height: 1.5rem;
-margin-bottom: 1rem;
-border-radius: 0.3rem;
-animation-name: fadeInUp;
-animation-duration: 1s;
-animation-fill-mode: both;
-
+  font-family: 'Arial';
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 0.5rem 0.7rem;
+  white-space: pre-line;
+  min-height: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 0.3rem;
+  animation-name: fadeInUp;
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }
