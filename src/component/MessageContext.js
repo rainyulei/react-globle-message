@@ -1,47 +1,13 @@
 import React from 'react';
 import Icon from './icon';
-import './message.css';
-const BaseTemplate = props => {
-  const { message ,handleClosed,removeMessage,getmessageByid } = props;
-  return (
-    <div
-      key={message.id}
-      style={message.action.style}
-      className={message.className + ' message'}
-      onClick={e => {
-        e.nativeEvent.stopImmediatePropagation();
-        e.stopPropagation();
-        message.onClick && message.onClick(message);
-      }}
-    >
-      <span style={{ marginRight: '1vw', display: 'inline-block' }}>
-        <message.action.icon />
-      </span>
-      {message.message ? <span>{message.message}</span> : ''}
-      {message.closedable ? (
-        <span
-          className='message__closeIcon'
-          onClick={e => {
-            e.nativeEvent.stopImmediatePropagation();
-            e.stopPropagation();
-            handleClosed(message);
-          }}
-        >
-          <message.closeIcon />
-        </span>
-      ) : (
-        ''
-      )}
-    </div>
-  );
-};
+import { BaseTemplate, BaseTransation } from './baseTemplate';
 const storeConfig = {
   max: 5, // 最多的数量
   thems: 'light', // drak
   delay: 2000, //默认delay 持续时间
   position: 'middle-top', // 默认出现的位置
   baseTemplate: BaseTemplate, // 默认的模板
-  transation: '', //动画
+  transation: BaseTransation, //动画
   default: {
     style: {
       background: '#f0f9eb',

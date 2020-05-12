@@ -10,24 +10,18 @@
     transform: none;
   }
 }
-.message__closeIcon{
+.fadeInUp {
+  animation-name: fadeInUp;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+.message__closeIcon {
   right: 0;
- margin-left: 1vw;
+  margin-left: 1vw;
   display: inline-block;
   min-height: 100%;
   line-height: 100%;
 }
-.message-container {
-  position: fixed;
-  overflow: hidden;
-  z-index: 999999999999;
-  max-height: calc(100vh - 10px);
-  text-align: right;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
 .message {
   font-family: 'Arial';
   display: flex;
@@ -38,7 +32,4 @@
   min-height: 1.5rem;
   margin-bottom: 1rem;
   border-radius: 0.3rem;
-  animation-name: fadeInUp;
-  animation-duration: 1s;
-  animation-fill-mode: both;
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import MessageContext from './MessageContext';
 import ReactDOM from 'react-dom';
 import MessageEL from './message';
@@ -7,7 +7,7 @@ const Provider = props => {
   const { children, value } = props;
   // 默认设置
   const contextdefault = useContext(MessageContext);
-  console.log(contextdefault)
+  
   const myRef = React.createRef();
   // 使用时候的单一设置
   const success = options => {

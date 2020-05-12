@@ -2,7 +2,7 @@
  * @Author: yu-lei
  * @Date: 2020-05-12 11:36:33
  * @Last Modified by: yu-lei
- * @Last Modified time: 2020-05-12 20:32:19
+ * @Last Modified time: 2020-05-12 21:41:06
  */
 import React, {
   useRef,
@@ -12,6 +12,7 @@ import React, {
   useEffect,
 } from 'react';
 import filterObject from './helper';
+import getposition from './getposition'
 const MessageEL = forwardRef((props, ref) => {
   const [messages, setMessages] = useState([]);
   const [delMsh, setDelMsg] = useState(null);
@@ -73,6 +74,7 @@ const MessageEL = forwardRef((props, ref) => {
         ...message,
       };
       console.log(newMessage);
+      newMessage.position = getposition(position)
       newMessages.push(newMessage);
       const configs = Object.keys(newMessage);
       const closedable = configs.includes('closedable')
@@ -140,18 +142,35 @@ const MessageEL = forwardRef((props, ref) => {
       }
     };
   }, [delMsh]);
-
+  // position
+  const position = contextFig&&contextFig.position?getposition(contextFig.position):getposition()
   const node = (
-    <div className='message-container'>
+    <div
+      style={{
+        position: 'fixed',
+        overflow: 'hidden',
+        zIndex: '999999999999',
+        maxHeight: 'calc(100vh - 10px)',
+        textAlign: 'right',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-end',
+        ...position
+      }
+      
+      }
+    >
       {messages.map((item, index) => (
-        <contextFig.baseTemplate
-          key={item.id}
-          message={item}
-          handleClosed={handleClosed}
-          getmessageByid={getmessageByid}
-          removeMessage={removeMessage}
-          getCurrentMessageID={getCurrentMessageID}
-        />
+        <contextFig.transation key={item.id} message={item.id}>
+          <contextFig.baseTemplate
+            key={item.id}
+            message={item}
+            handleClosed={handleClosed}
+            getmessageByid={getmessageByid}
+            removeMessage={removeMessage}
+            getCurrentMessageID={getCurrentMessageID}
+          />
+        </contextFig.transation>
       ))}
     </div>
   );

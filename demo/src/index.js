@@ -1,13 +1,9 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { render } from 'react-dom';
-import MessageContextProvider from '../../src/component/MessageProvider'
-import { Message, ConfigContext } from '../../src/index';
-import useMessage from '../../src/component/getcontext'
+import { useMessage,MessageProvider} from '../../src/index'
 const Demo = () => {
   const [st, setst] = useState(0);
   const messagecontext = useMessage()
-  const config = useContext(ConfigContext);
-
   const handleSuccess = () => {
     messagecontext.success({
       message: st + 1,
@@ -31,6 +27,7 @@ const Demo = () => {
       onStart: item => {
         console.log(item);
       },
+      position:'left-top'
     })
     setst(st + 1);
   };
@@ -98,14 +95,14 @@ const Demo = () => {
 };
 
 render(
-  <MessageContextProvider
+  <MessageProvider
     value={{
       backGround: 'linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)',
       max: 10,
     }}
   >
     <Demo/>
-  </MessageContextProvider>,
+  </MessageProvider>,
 
   document.querySelector('#demo')
 );

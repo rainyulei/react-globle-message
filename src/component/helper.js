@@ -15,6 +15,5 @@ export default function (context, className) {
       newContext[item] = context[item];
     }
   });
-  console.log(newContext);
   return newContext;
 }
